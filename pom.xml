@@ -63,7 +63,7 @@
                     <target>${java.version}</target>
                     <compilerArgs>
                         <arg>-h</arg>
-                        <arg>jni-headers</arg>
+                        <arg>native-library</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>
