@@ -3,6 +3,13 @@ package org.tof.example;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.LongSummaryStatistics;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import static org.assertj.core.api.BDDAssertions.then;
 
 class DoTheJobTest {
@@ -17,7 +24,6 @@ class DoTheJobTest {
         then(returnedValue).isEqualTo("it works");
     }
 
-    /*
     @Test
     @DisplayName("native function call returns correct output Array")
     void native_function_call_returns_output_Array() {
@@ -26,7 +32,7 @@ class DoTheJobTest {
         int arraySize = inputArray.length;
         int[] outputArray = new int[arraySize];
         // when
-        final int returnedValue = (new DoTheJob()).doTheJobArray(inputArray, outputArray, arraySize);
+        final int returnedValue = (new DoTheJob()).doTheJobArrayNative(inputArray, outputArray, arraySize);
 
         // then
         then(returnedValue).isEqualTo(arraySize);
@@ -48,7 +54,7 @@ class DoTheJobTest {
         IntStream.range(0, 50).forEach(notUsed -> {
             // when
             Instant t0 = Instant.now();
-            final int returnedValue = (new DoTheJob()).doTheJobArray(inputArray, outputArray, arraySize);
+            final int returnedValue = (new DoTheJob()).doTheJobArrayNative(inputArray, outputArray, arraySize);
             Instant t1 = Instant.now();
             durations.add(diffMicro(t0, t1));
 
@@ -90,5 +96,4 @@ class DoTheJobTest {
 
         return Math.sqrt(standardDeviation / array.size());
     }
-    */
 }
