@@ -1,3 +1,5 @@
+#include "dothejob.h"
+
 char * doTheJobNative() {
     return "it works";
 }

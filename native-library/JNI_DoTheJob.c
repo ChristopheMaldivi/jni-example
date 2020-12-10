@@ -2,7 +2,7 @@
 #include "dothejob.h"
 
 JNIEXPORT jstring JNICALL Java_org_tof_example_DoTheJob_doTheJobNative
-  (JNIEnv *, jobject) {
-  char * resultat = dothejob();
+  (JNIEnv * env, jobject obj) {
+  char * resultat = doTheJobNative();
   return (*env)->NewStringUTF(env, resultat);
 }
