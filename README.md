@@ -4,6 +4,7 @@ We demonstrate here the use of JNI, the java native interface, with two simple f
 
 
 ## Build and run
+ 1. generate JNI headers: `mvn clean compile`
  - build the native library (mac and linux are supported): `(cd native-library/ && ./build-linux.sh)`
  - run the tests on java side: `mvn clean install`
 
