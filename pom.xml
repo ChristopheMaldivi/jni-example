@@ -61,6 +61,10 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-h</arg>
+                        <arg>jni-headers</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>

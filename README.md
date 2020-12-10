@@ -7,4 +7,14 @@ We demonstrate here the use of JNI, the java native interface, with two simple f
  - build the native library (mac and linux are supported): `(cd native-library/ && ./build-linux.sh)`
  - run the tests on java side: `mvn clean install`
 
+
+We use the following maven configuration to generate automatically during the compilation JNI headers:
+```
+<compilerArgs>
+  <arg>-h</arg>
+  <arg>jni-headers</arg>
+</compilerArgs>
+```
+
+
 NB: you need java 11 at least to get performance measures working (relies on `Instant` class)
