@@ -1,3 +1,5 @@
 *.iml
 .idea/
 target/
+libdothejob.dylib
+native-library/org_tof_example_DoTheJob.h
