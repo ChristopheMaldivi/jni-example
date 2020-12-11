@@ -9,19 +9,16 @@ import java.io.InputStream;
 
 class NativeLibraryLoader {
 
-    private static final String LIB_NAME = "dothejob";
 
-    boolean loadNativeLibrarySafely() {
-        String libPath = String.format("%s", getLibName());
+    void loadNativeLibrarySafely(String libName) {
+        String libPath = String.format("%s", getLibName(libName));
         try {
             tryToLoadNativeLibrary(libPath);
-            return true;
         } catch (UnsatisfiedLinkError e) {
             failedToLoadNativeLib(libPath, "(load failed)");
         } catch (IOException e) {
             failedToLoadNativeLib(libPath, "(failed to write lib to local directory)");
         }
-        return false;
     }
 
     private void tryToLoadNativeLibrary(String libPath) throws IOException {
@@ -47,8 +44,8 @@ class NativeLibraryLoader {
         System.out.printf("[WARN] failed to load %s%s, fall back to pure (but slow) java implementation%n", libPath, cause);
     }
 
-    private static String getLibName() {
+    private static String getLibName(String libName) {
         String os = System.getProperty("os.name").toLowerCase();
-        return String.format("lib%s.%s", LIB_NAME, os.contains("mac") ? "dylib" : os.contains("setwidth") ? "dll" : "so");
+        return String.format("lib%s.%s", libName, os.contains("mac") ? "dylib" : os.contains("setwidth") ? "dll" : "so");
     }
 }

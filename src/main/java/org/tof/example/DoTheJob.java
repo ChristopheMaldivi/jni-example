@@ -2,7 +2,7 @@ package org.tof.example;
 
 public class DoTheJob {
     static {
-        new NativeLibraryLoader().loadNativeLibrarySafely();
+        new NativeLibraryLoader().loadNativeLibrarySafely("dothejob");
     }
 
     public native String doTheJobNative();
